@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f7;
+      color: #4a4a4a;
+    }
+
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('cover.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #6b7c6f; /* sage green */
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #b8a9c9; /* lavender */
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: #b8a9c9;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    a.button:hover {
+      background: #6b7c6f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: #f0efe9;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 15px;
+      margin: 10px;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>You're Invited</h1>
+    <p>Join us for our special day</p>
+  </div>
+</header>
+
+<section>
+  <div class="card">
+    <h2>Wedding Details</h2>
+    <p><strong>Date:</strong> Add Date</p>
+    <p><strong>Time:</strong> Add Time</p>
+    <p><strong>Venue:</strong> Add Venue Name</p>
+    <a class="button" href="https://maps.google.com" target="_blank">View Location</a>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>RSVP</h2>
+    <p>Please let us know if you can make it</p>
+    <a class="button" href="YOUR_RSVP_LINK" target="_blank">RSVP Here</a>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="photo" />
+      <img src="photo2.jpg" alt="photo" />
+      <img src="photo3.jpg" alt="photo" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Download Invitation</h2>
+    <a class="button" href="invitation.pdf" download>Download Invite</a>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Wedding Registry</h2>
+    <a class="button" href="YOUR_REGISTRY_LINK" target="_blank">View Registry</a>
+  </div>
+</section>
+
+<footer>
+  Designed by Sushmita R. Jadhav✨
+</footer>
+
+</body>
+</html>
