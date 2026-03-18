@@ -5,196 +5,209 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Maya & Brayon Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400;1,500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-  --sage:#8FAF9B;
-  --lavender:#C9B6D9;
-  --blush:#E8C6C9;
-  --cream:#faf9f7;
-  --text:#4a4a4a;
+--sage:#8FAF9B;
+--lavender:#C9B6D9;
+--cream:#FAF9F7;
+--text:#4a4a4a;
 }
 
 body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--cream);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
+margin:0;
+font-family:'Poppins',sans-serif;
+background:var(--cream);
+color:var(--text);
+line-height:1.6;
 }
 
 /* language toggle */
 .lang-toggle{
-  position:fixed;
-  top:20px;
-  right:20px;
-  background:white;
-  border-radius:30px;
-  padding:6px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  z-index:10;
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+border-radius:30px;
+padding:6px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+z-index:10;
 }
 
 .lang-toggle button{
-  border:none;
-  background:transparent;
-  padding:8px 14px;
-  cursor:pointer;
-  border-radius:20px;
+border:none;
+background:transparent;
+padding:8px 14px;
+cursor:pointer;
+border-radius:20px;
+font-weight:500;
 }
 
 .lang-toggle button.active{
-  background:var(--lavender);
-  color:white;
+background:var(--lavender);
+color:white;
 }
 
-/* floating floral decorations */
-.flower{
-  position:fixed;
-  width:120px;
-  opacity:.18;
-  pointer-events:none;
-  z-index:0;
-}
-
-.flower.top-left{top:-20px;left:-10px}
-.flower.bottom-right{bottom:-30px;right:-20px;transform:rotate(180deg)}
-
-/* hero */
+/* HERO SECTION */
 header{
-  height:100vh;
-  background:
-  linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.75)),
-  url('assets/cover.jpg') center/cover no-repeat;
+height:100vh;
+background:
+radial-gradient(circle, rgba(255,255,255,0.2) 40%, rgba(0,0,0,0.25) 100%),
+linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.75)),
+url('assets/cover.jpg') center/cover no-repeat;
 
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  text-align:center;
-
-  padding-top:16vh;
+display:flex;
+align-items:flex-start;
+justify-content:center;
+text-align:center;
+padding-top:16vh;
 }
 
 header h1{
-  font-family:'Great Vibes',cursive;
-  font-size:4rem;
-  color:var(--sage);
-  margin-bottom:10px;
+font-family:'Great Vibes',cursive;
+font-size:4rem;
+color:var(--sage);
+margin-bottom:10px;
+letter-spacing:1px;
+text-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
 
-header p{
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-size:1.45rem;
-  color:#5f6f63;
+.hero-small{
+font-family:'Playfair Display',serif;
+font-style:italic;
+font-size:1rem;
+letter-spacing:1px;
+color:#6e7f73;
+margin-bottom:6px;
 }
 
-/* countdown */
-.countdown{
-  margin-top:20px;
-  font-family:'Playfair Display',serif;
-  font-size:1.2rem;
-  color:var(--lavender);
+.hero-date{
+font-family:'Playfair Display',serif;
+font-size:1.7rem;
+margin-top:10px;
+color:#5f6f63;
 }
 
-/* layout */
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:60px 25px;
+.hero-location{
+font-size:1rem;
+color:#777;
+margin-top:4px;
 }
 
-.row{
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.column{
-  flex:1;
-  min-width:300px;
-  text-align:center;
+/* CONTENT WIDTH (Luxury layout trick) */
+section{
+max-width:720px;
+margin:0 auto;
+padding:80px 24px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,0.9);
+margin-bottom:40px;
 }
 
 h2{
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-size:1.8rem;
-  margin-bottom:10px;
+font-family:'Playfair Display',serif;
+font-style:italic;
+font-size:1.9rem;
+margin-bottom:12px;
+color:var(--lavender);
 }
 
-/* color accents per section */
-.ceremony h2{color:var(--lavender)}
-.invite h2{color:var(--blush)}
-.rsvp h2{color:var(--sage)}
+p{
+margin:6px 0;
+}
 
+/* SILK BUTTON STYLE */
 .button{
-  display:inline-block;
-  margin-top:16px;
-  padding:12px 26px;
-  border-radius:30px;
-  background:var(--sage);
-  color:white;
-  text-decoration:none;
-  transition:0.3s;
-  font-size:.95rem;
+display:inline-block;
+margin-top:16px;
+padding:13px 28px;
+border-radius:30px;
+background:var(--sage);
+color:white;
+text-decoration:none;
+font-size:0.95rem;
+position:relative;
+overflow:hidden;
+transition:all .35s ease;
 }
 
-.button.alt{background:var(--lavender)}
-.button.alt2{background:var(--blush)}
+.button.alt{
+background:var(--lavender);
+}
 
-.button:hover{transform:translateY(-2px);opacity:.9}
+/* silk hover animation */
+.button::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0.25);
+transform:skewX(-25deg);
+transition:.6s;
+}
+
+.button:hover::before{
+left:120%;
+}
+
+.button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
 
 .gallery{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:30px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:14px;
+margin-top:25px;
 }
 
 .gallery img{
-  width:220px;
-  border-radius:18px;
+width:220px;
+border-radius:18px;
 }
 
-.center{
-  text-align:center;
-  margin-top:60px;
+.invite-buttons a{
+margin:6px;
+}
+
+/* COUNTDOWN */
+.countdown-section{
+padding:90px 20px 120px 20px;
+text-align:center;
+}
+
+.countdown-title{
+font-family:'Playfair Display',serif;
+font-style:italic;
+color:var(--sage);
+font-size:2rem;
+margin-bottom:18px;
+}
+
+#countdown{
+font-family:'Playfair Display',serif;
+font-size:2.3rem;
+color:var(--lavender);
 }
 
 footer{
-  text-align:center;
-  padding:60px 0;
-  font-size:.9rem;
-  font-style:italic;
-  color:#777;
-}
-
-/* fade animation */
-.fade{
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 1s ease;
-}
-
-.fade.visible{
-  opacity:1;
-  transform:translateY(0);
+text-align:center;
+padding:40px 0 60px 0;
+font-size:0.9rem;
+font-style:italic;
+color:#777;
 }
 
 </style>
 </head>
 
 <body>
-
-<!-- floating flowers -->
-<img src="assets/flower.png" class="flower top-left" />
-<img src="assets/flower.png" class="flower bottom-right" />
 
 <div class="lang-toggle">
 <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
@@ -204,94 +217,77 @@ footer{
 <header>
 <div>
 
+<p class="hero-small" data-en="Together with their families" data-es="Junto con sus familias">
+Together with their families
+</p>
+
 <h1 data-en="Maya Gonzalez & Brayon Rodriguez" data-es="Maya Gonzalez y Brayon Rodriguez">
 Maya Gonzalez & Brayon Rodriguez
 </h1>
 
-<p data-en="June 3, 2026 • 3:00 PM" data-es="3 de Junio 2026 • 3:00 PM">
+<p class="hero-small" data-en="joyfully invite you to celebrate their wedding" data-es="les invitan con alegría a celebrar su boda">
+joyfully invite you to celebrate their wedding
+</p>
+
+<p class="hero-date" data-en="June 3, 2026 • 3:00 PM" data-es="3 de Junio 2026 • 3:00 PM">
 June 3, 2026 • 3:00 PM
 </p>
 
-<div class="countdown" id="countdown"></div>
+<p class="hero-location" data-en="Santa Clarita, California" data-es="Santa Clarita, California">
+Santa Clarita, California
+</p>
 
 </div>
 </header>
 
-<div class="container">
-
-<!-- ceremony + invite side by side -->
-<div class="row">
-
-<div class="column ceremony fade">
-
+<section>
 <h2 data-en="Ceremony" data-es="Ceremonia">Ceremony</h2>
-
-<p data-en="Wednesday, June 3, 2026" data-es="Miércoles, 3 de Junio 2026">
-Wednesday, June 3, 2026
-</p>
-
+<p data-en="Wednesday, June 3, 2026" data-es="Miércoles, 3 de Junio 2026">Wednesday, June 3, 2026</p>
 <p>3:00 PM</p>
-
-<p data-en="Our Lady of Perpetual Help Church" data-es="Iglesia Our Lady of Perpetual Help">
-Our Lady of Perpetual Help Church
-</p>
-
+<p data-en="Our Lady of Perpetual Help Church" data-es="Iglesia Our Lady of Perpetual Help">Our Lady of Perpetual Help Church</p>
 <p>23233 Lyons Ave, Santa Clarita, CA</p>
+<a class="button alt" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA" target="_blank" data-en="View Location" data-es="Ver Ubicación">View Location</a>
+</section>
 
-<a class="button alt" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA" target="_blank"
- data-en="View Location" data-es="Ver Ubicación">
-View Location
-</a>
+<section>
+<h2 data-en="Reception" data-es="Recepción">Reception</h2>
+<p data-en="Reception to follow" data-es="Recepción después de la ceremonia">Reception to follow</p>
+<p>24934 Newhall Ave, Santa Clarita, CA</p>
+<a class="button alt" href="https://maps.google.com/?q=24934+Newhall+Ave+Santa+Clarita+CA" target="_blank" data-en="View Location" data-es="Ver Ubicación">View Location</a>
+</section>
 
-</div>
-
-<div class="column invite fade">
-
-<h2 data-en="Invitation" data-es="Invitación">Invitation</h2>
-
-<p data-en="Download the official wedding invitation" data-es="Descargar la invitación oficial">
-Download the official wedding invitation
-</p>
-
-<a class="button" href="assets/invite-english.pdf" download
- data-en="English Invite" data-es="Invitación en Inglés">
-English Invite
-</a>
-
-<br>
-
-<a class="button alt2" href="assets/invite-spanish.pdf" download
- data-en="Spanish Invite" data-es="Invitación en Español">
-Spanish Invite
-</a>
-
-</div>
-
-</div>
-
-<!-- rsvp center -->
-<div class="center rsvp fade">
-
+<section>
 <h2 data-en="RSVP" data-es="Confirmación">RSVP</h2>
+<p data-en="Please confirm before May 3, 2026" data-es="Por favor confirme antes del 3 de mayo 2026">Please confirm before May 3, 2026</p>
+<a class="button" href="#" data-en="Click here to RSVP" data-es="Haga clic aquí para confirmar">Click here to RSVP</a>
+</section>
 
-<p data-en="Please confirm before May 3, 2026" data-es="Por favor confirme antes del 3 de mayo 2026">
-Please confirm before May 3, 2026
-</p>
-
-<a class="button" href="#"
- data-en="Click here to RSVP" data-es="Haga clic aquí para confirmar">
-Click here to RSVP
-</a>
-
-</div>
-
-<!-- gallery -->
-<div class="gallery fade">
+<section>
+<h2 data-en="Gallery" data-es="Galería">Gallery</h2>
+<div class="gallery">
 <img src="assets/photo1.jpg" />
 <img src="assets/photo2.jpg" />
 <img src="assets/photo3.jpg" />
 </div>
+</section>
 
+<section>
+<h2 data-en="Download Invitation" data-es="Descargar Invitación">Download Invitation</h2>
+<div class="invite-buttons">
+<a class="button" href="assets/invite-english.pdf" download data-en="English Invite" data-es="Invitación en Inglés">English Invite</a>
+<a class="button alt" href="assets/invite-spanish.pdf" download data-en="Spanish Invite" data-es="Invitación en Español">Spanish Invite</a>
+</div>
+</section>
+
+<section>
+<h2 data-en="Registry" data-es="Registro">Registry</h2>
+<p data-en="Registered on Amazon under Brayon Rodriguez" data-es="Registrado en Amazon bajo Brayon Rodriguez">Registered on Amazon under Brayon Rodriguez</p>
+<a class="button" href="#" target="_blank" data-en="View Registry" data-es="Ver Registro">View Registry</a>
+</section>
+
+<div class="countdown-section">
+<div class="countdown-title" data-en="Countdown to our Wedding" data-es="Cuenta regresiva para nuestra boda">Countdown to our Wedding</div>
+<div id="countdown"></div>
 </div>
 
 <footer>
@@ -310,7 +306,6 @@ function setLang(lang){
  document.getElementById('btn-'+lang).classList.add('active');
 }
 
-/* countdown */
 const target=new Date("June 3, 2026 15:00:00").getTime();
 const countdownEl=document.getElementById("countdown");
 
@@ -326,17 +321,6 @@ const m=Math.floor((diff%(1000*60*60))/(1000*60));
 countdownEl.innerHTML=`${d} days • ${h} hours • ${m} minutes`;
 
 },1000);
-
-/* fade in scroll */
-const observer=new IntersectionObserver(entries=>{
- entries.forEach(entry=>{
-  if(entry.isIntersecting){
-   entry.target.classList.add('visible');
-  }
- });
-});
-
- document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 
 </script>
 
