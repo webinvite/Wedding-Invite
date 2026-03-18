@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Maya & Brayon Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,7 +13,8 @@
 --sage:#8FAF9B;
 --lavender:#C9B6D9;
 --cream:#FAF9F7;
---text:#4a4a4a;
+--text:#3f3f3f;
+--lightgrey:#f3f3f3;
 }
 
 body{
@@ -21,28 +22,56 @@ margin:0;
 font-family:'Poppins',sans-serif;
 background:var(--cream);
 color:var(--text);
-line-height:1.6;
+line-height:1.7;
 }
 
-/* language toggle */
+/* NAVBAR */
+nav{
+position:sticky;
+top:0;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 28px;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+z-index:20;
+}
+
+nav .logo{
+font-family:'Great Vibes',cursive;
+font-size:1.8rem;
+color:var(--sage);
+}
+
+nav a{
+margin-left:18px;
+text-decoration:none;
+color:#555;
+font-size:0.9rem;
+}
+
+nav a:hover{
+color:var(--sage);
+}
+
+/* LANGUAGE TOGGLE */
 .lang-toggle{
 position:fixed;
-top:20px;
+top:70px;
 right:20px;
 background:white;
 border-radius:30px;
 padding:6px;
 box-shadow:0 5px 15px rgba(0,0,0,0.08);
-z-index:10;
 }
 
 .lang-toggle button{
 border:none;
 background:transparent;
-padding:8px 14px;
+padding:6px 12px;
 cursor:pointer;
 border-radius:20px;
-font-weight:500;
 }
 
 .lang-toggle button.active{
@@ -50,75 +79,75 @@ background:var(--lavender);
 color:white;
 }
 
-/* HERO SECTION */
-header{
-height:100vh;
-background:
-radial-gradient(circle, rgba(255,255,255,0.2) 40%, rgba(0,0,0,0.25) 100%),
-linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.75)),
-url('assets/cover.jpg') center/cover no-repeat;
-
-display:flex;
-align-items:flex-start;
-justify-content:center;
+/* HERO TEXT */
+.hero-text{
+max-width:720px;
+margin:80px auto 40px auto;
 text-align:center;
-padding-top:16vh;
-}
-
-header h1{
-font-family:'Great Vibes',cursive;
-font-size:4rem;
-color:var(--sage);
-margin-bottom:10px;
-letter-spacing:1px;
-text-shadow:0 2px 8px rgba(0,0,0,0.15);
+padding:0 24px;
 }
 
 .hero-small{
 font-family:'Playfair Display',serif;
 font-style:italic;
 font-size:1rem;
-letter-spacing:1px;
-color:#6e7f73;
-margin-bottom:6px;
+color:#6f6f6f;
+}
+
+.hero-text h1{
+font-family:'Great Vibes',cursive;
+font-size:4rem;
+margin:10px 0;
+color:var(--sage);
+text-shadow:0 2px 8px rgba(0,0,0,0.12);
 }
 
 .hero-date{
 font-family:'Playfair Display',serif;
-font-size:1.7rem;
-margin-top:10px;
-color:#5f6f63;
+font-size:1.5rem;
+color:#555;
 }
 
 .hero-location{
-font-size:1rem;
+font-size:0.95rem;
 color:#777;
-margin-top:4px;
 }
 
-/* CONTENT WIDTH (Luxury layout trick) */
+/* HERO IMAGE */
+.hero-image{
+max-width:900px;
+margin:0 auto;
+padding:0 20px;
+}
+
+.hero-image img{
+width:100%;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* SECTIONS */
 section{
 max-width:720px;
 margin:0 auto;
 padding:80px 24px;
 text-align:center;
-border-bottom:1px solid rgba(255,255,255,0.9);
-margin-bottom:40px;
 }
 
 h2{
 font-family:'Playfair Display',serif;
 font-style:italic;
-font-size:1.9rem;
+color:#444;
 margin-bottom:12px;
-color:var(--lavender);
 }
 
-p{
-margin:6px 0;
+/* subtle celebration background */
+.section-soft{
+background:var(--lightgrey);
+border-radius:18px;
 }
 
-/* SILK BUTTON STYLE */
+/* BUTTONS */
 .button{
 display:inline-block;
 margin-top:16px;
@@ -127,17 +156,13 @@ border-radius:30px;
 background:var(--sage);
 color:white;
 text-decoration:none;
-font-size:0.95rem;
 position:relative;
 overflow:hidden;
-transition:all .35s ease;
+transition:.35s;
 }
 
-.button.alt{
-background:var(--lavender);
-}
+.button.alt{background:var(--lavender);} 
 
-/* silk hover animation */
 .button::before{
 content:"";
 position:absolute;
@@ -150,56 +175,70 @@ transform:skewX(-25deg);
 transition:.6s;
 }
 
-.button:hover::before{
-left:120%;
-}
+.button:hover::before{left:120%;}
 
 .button:hover{
 transform:translateY(-2px);
 box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
+/* RSVP FEATURE SECTION */
+.rsvp{
+background:linear-gradient(135deg,#fafafa,#f0f0f0);
+border-radius:24px;
+padding:90px 30px;
+margin:60px auto;
+max-width:760px;
+}
+
+.rsvp h2{
+font-size:2rem;
+color:var(--sage);
+}
+
+.rsvp p{
+font-size:1.1rem;
+}
+
+/* GALLERY */
 .gallery{
 display:flex;
-justify-content:center;
 flex-wrap:wrap;
-gap:14px;
-margin-top:25px;
+justify-content:center;
+gap:16px;
+margin-top:20px;
 }
 
 .gallery img{
 width:220px;
-border-radius:18px;
+border-radius:16px;
 }
 
-.invite-buttons a{
-margin:6px;
-}
+/* INVITE BUTTONS */
+.invite-buttons a{margin:8px;}
 
 /* COUNTDOWN */
-.countdown-section{
-padding:90px 20px 120px 20px;
+.countdown{
 text-align:center;
+padding:90px 20px 110px 20px;
 }
 
 .countdown-title{
 font-family:'Playfair Display',serif;
-font-style:italic;
-color:var(--sage);
 font-size:2rem;
-margin-bottom:18px;
+color:#444;
+margin-bottom:20px;
 }
 
 #countdown{
 font-family:'Playfair Display',serif;
 font-size:2.3rem;
-color:var(--lavender);
+color:var(--sage);
 }
 
 footer{
 text-align:center;
 padding:40px 0 60px 0;
-font-size:0.9rem;
 font-style:italic;
 color:#777;
 }
@@ -209,83 +248,81 @@ color:#777;
 
 <body>
 
+<nav>
+<div class="logo">M & B</div>
+<div>
+<a href="#ceremony">Ceremony</a>
+<a href="#rsvp">RSVP</a>
+<a href="#gallery">Gallery</a>
+<a href="#registry">Registry</a>
+</div>
+</nav>
+
 <div class="lang-toggle">
 <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
 <button onclick="setLang('es')" id="btn-es">ES</button>
 </div>
 
-<header>
-<div>
+<div class="hero-text">
 
-<p class="hero-small" data-en="Together with their families" data-es="Junto con sus familias">
-Together with their families
-</p>
+<p class="hero-small" data-en="Together with their families" data-es="Junto con sus familias">Together with their families</p>
 
-<h1 data-en="Maya Gonzalez & Brayon Rodriguez" data-es="Maya Gonzalez y Brayon Rodriguez">
-Maya Gonzalez & Brayon Rodriguez
-</h1>
+<h1 data-en="Maya Gonzalez & Brayon Rodriguez" data-es="Maya Gonzalez y Brayon Rodriguez">Maya Gonzalez & Brayon Rodriguez</h1>
 
-<p class="hero-small" data-en="joyfully invite you to celebrate their wedding" data-es="les invitan con alegría a celebrar su boda">
-joyfully invite you to celebrate their wedding
-</p>
+<p class="hero-small" data-en="joyfully invite you to celebrate their wedding" data-es="les invitan con alegría a celebrar su boda">joyfully invite you to celebrate their wedding</p>
 
-<p class="hero-date" data-en="June 3, 2026 • 3:00 PM" data-es="3 de Junio 2026 • 3:00 PM">
-June 3, 2026 • 3:00 PM
-</p>
+<p class="hero-date" data-en="June 3, 2026 • 3:00 PM" data-es="3 de Junio 2026 • 3:00 PM">June 3, 2026 • 3:00 PM</p>
 
-<p class="hero-location" data-en="Santa Clarita, California" data-es="Santa Clarita, California">
-Santa Clarita, California
-</p>
+<p class="hero-location">Santa Clarita, California</p>
 
 </div>
-</header>
 
-<section>
+<div class="hero-image">
+<img src="assets/cover.jpg" alt="Couple photo">
+</div>
+
+<section id="ceremony">
 <h2 data-en="Ceremony" data-es="Ceremonia">Ceremony</h2>
-<p data-en="Wednesday, June 3, 2026" data-es="Miércoles, 3 de Junio 2026">Wednesday, June 3, 2026</p>
+<p>Wednesday, June 3, 2026</p>
 <p>3:00 PM</p>
-<p data-en="Our Lady of Perpetual Help Church" data-es="Iglesia Our Lady of Perpetual Help">Our Lady of Perpetual Help Church</p>
+<p>Our Lady of Perpetual Help Church</p>
 <p>23233 Lyons Ave, Santa Clarita, CA</p>
-<a class="button alt" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA" target="_blank" data-en="View Location" data-es="Ver Ubicación">View Location</a>
+<a class="button alt" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA" target="_blank">View Location</a>
 </section>
 
-<section>
-<h2 data-en="Reception" data-es="Recepción">Reception</h2>
-<p data-en="Reception to follow" data-es="Recepción después de la ceremonia">Reception to follow</p>
-<p>24934 Newhall Ave, Santa Clarita, CA</p>
-<a class="button alt" href="https://maps.google.com/?q=24934+Newhall+Ave+Santa+Clarita+CA" target="_blank" data-en="View Location" data-es="Ver Ubicación">View Location</a>
+<section class="rsvp" id="rsvp">
+<h2 data-en="Celebrate With Us" data-es="Celebra con Nosotros">Celebrate With Us</h2>
+<p data-en="Food, drinks, family, and lots of love. Please let us know if you can join our special day." data-es="Comida, bebidas, familia y mucho amor. Por favor confirma si podrás acompañarnos.">
+Food, drinks, family, and lots of love. Please let us know if you can join our special day.
+</p>
+
+<a class="button" href="#" data-en="Click here to RSVP" data-es="Haz clic aquí para confirmar">Click here to RSVP</a>
 </section>
 
-<section>
-<h2 data-en="RSVP" data-es="Confirmación">RSVP</h2>
-<p data-en="Please confirm before May 3, 2026" data-es="Por favor confirme antes del 3 de mayo 2026">Please confirm before May 3, 2026</p>
-<a class="button" href="#" data-en="Click here to RSVP" data-es="Haga clic aquí para confirmar">Click here to RSVP</a>
-</section>
-
-<section>
+<section id="gallery" class="section-soft">
 <h2 data-en="Gallery" data-es="Galería">Gallery</h2>
 <div class="gallery">
-<img src="assets/photo1.jpg" />
-<img src="assets/photo2.jpg" />
-<img src="assets/photo3.jpg" />
+<img src="assets/photo1.jpg">
+<img src="assets/photo2.jpg">
+<img src="assets/photo3.jpg">
 </div>
 </section>
 
 <section>
 <h2 data-en="Download Invitation" data-es="Descargar Invitación">Download Invitation</h2>
 <div class="invite-buttons">
-<a class="button" href="assets/invite-english.pdf" download data-en="English Invite" data-es="Invitación en Inglés">English Invite</a>
-<a class="button alt" href="assets/invite-spanish.pdf" download data-en="Spanish Invite" data-es="Invitación en Español">Spanish Invite</a>
+<a class="button" href="assets/invite-english.pdf" download>English Invite</a>
+<a class="button alt" href="assets/invite-spanish.pdf" download>Spanish Invite</a>
 </div>
 </section>
 
-<section>
+<section id="registry" class="section-soft">
 <h2 data-en="Registry" data-es="Registro">Registry</h2>
 <p data-en="Registered on Amazon under Brayon Rodriguez" data-es="Registrado en Amazon bajo Brayon Rodriguez">Registered on Amazon under Brayon Rodriguez</p>
-<a class="button" href="#" target="_blank" data-en="View Registry" data-es="Ver Registro">View Registry</a>
+<a class="button" href="#" target="_blank">View Registry</a>
 </section>
 
-<div class="countdown-section">
+<div class="countdown">
 <div class="countdown-title" data-en="Countdown to our Wedding" data-es="Cuenta regresiva para nuestra boda">Countdown to our Wedding</div>
 <div id="countdown"></div>
 </div>
@@ -310,7 +347,6 @@ const target=new Date("June 3, 2026 15:00:00").getTime();
 const countdownEl=document.getElementById("countdown");
 
 setInterval(()=>{
-
 const now=new Date().getTime();
 const diff=target-now;
 
