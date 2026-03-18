@@ -5,16 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Maya & Brayon Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400;1,500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+  --sage:#8FAF9B;
+  --lavender:#C9B6D9;
+  --blush:#E8C6C9;
+  --cream:#faf9f7;
+  --text:#4a4a4a;
+}
 
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:#faf9f7;
-  color:#4a4a4a;
+  background:var(--cream);
+  color:var(--text);
   line-height:1.6;
+  overflow-x:hidden;
 }
 
 /* language toggle */
@@ -25,7 +34,7 @@ body{
   background:white;
   border-radius:30px;
   padding:6px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
   z-index:10;
 }
 
@@ -35,15 +44,26 @@ body{
   padding:8px 14px;
   cursor:pointer;
   border-radius:20px;
-  font-weight:500;
 }
 
 .lang-toggle button.active{
-  background:#c7d4c5;
-  color:#2f3e2f;
+  background:var(--lavender);
+  color:white;
 }
 
-/* HERO */
+/* floating floral decorations */
+.flower{
+  position:fixed;
+  width:120px;
+  opacity:.18;
+  pointer-events:none;
+  z-index:0;
+}
+
+.flower.top-left{top:-20px;left:-10px}
+.flower.bottom-right{bottom:-30px;right:-20px;transform:rotate(180deg)}
+
+/* hero */
 header{
   height:100vh;
   background:
@@ -61,59 +81,80 @@ header{
 header h1{
   font-family:'Great Vibes',cursive;
   font-size:4rem;
-  color:#8FAF9B; /* pastel sage green */
-  margin-bottom:12px;
+  color:var(--sage);
+  margin-bottom:10px;
 }
 
 header p{
   font-family:'Playfair Display',serif;
   font-style:italic;
-  font-size:1.45rem; /* 20% bigger */
+  font-size:1.45rem;
   color:#5f6f63;
 }
 
-/* sections */
-section{
-  max-width:800px;
+/* countdown */
+.countdown{
+  margin-top:20px;
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+  color:var(--lavender);
+}
+
+/* layout */
+.container{
+  max-width:1000px;
   margin:auto;
   padding:60px 25px;
+}
+
+.row{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.column{
+  flex:1;
+  min-width:300px;
   text-align:center;
 }
 
 h2{
   font-family:'Playfair Display',serif;
   font-style:italic;
-  color:#9aaea0;
   font-size:1.8rem;
   margin-bottom:10px;
 }
 
-p{
-  margin:6px 0;
-}
+/* color accents per section */
+.ceremony h2{color:var(--lavender)}
+.invite h2{color:var(--blush)}
+.rsvp h2{color:var(--sage)}
 
 .button{
   display:inline-block;
   margin-top:16px;
   padding:12px 26px;
   border-radius:30px;
-  background:#b8cbb7;
+  background:var(--sage);
   color:white;
   text-decoration:none;
   transition:0.3s;
-  font-size:0.95rem;
+  font-size:.95rem;
 }
 
-.button:hover{
-  background:#7e9a88;
-}
+.button.alt{background:var(--lavender)}
+.button.alt2{background:var(--blush)}
+
+.button:hover{transform:translateY(-2px);opacity:.9}
 
 .gallery{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:14px;
-  margin-top:20px;
+  margin-top:30px;
 }
 
 .gallery img{
@@ -121,26 +162,39 @@ p{
   border-radius:18px;
 }
 
-.invite-buttons{
-  margin-top:15px;
-}
-
-.invite-buttons a{
-  margin:6px;
+.center{
+  text-align:center;
+  margin-top:60px;
 }
 
 footer{
   text-align:center;
-  padding:40px 0 50px 0;
-  font-size:0.9rem;
+  padding:60px 0;
+  font-size:.9rem;
   font-style:italic;
   color:#777;
+}
+
+/* fade animation */
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 1s ease;
+}
+
+.fade.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- floating flowers -->
+<img src="assets/flower.png" class="flower top-left" />
+<img src="assets/flower.png" class="flower bottom-right" />
 
 <div class="lang-toggle">
 <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
@@ -149,20 +203,32 @@ footer{
 
 <header>
 <div>
-<h1 data-en="Maya Gonzalez & Brayon Rodriguez" data-es="Maya Gonzalez y Brayon Rodriguez">Maya Gonzalez & Brayon Rodriguez</h1>
+
+<h1 data-en="Maya Gonzalez & Brayon Rodriguez" data-es="Maya Gonzalez y Brayon Rodriguez">
+Maya Gonzalez & Brayon Rodriguez
+</h1>
 
 <p data-en="June 3, 2026 • 3:00 PM" data-es="3 de Junio 2026 • 3:00 PM">
 June 3, 2026 • 3:00 PM
 </p>
 
+<div class="countdown" id="countdown"></div>
+
 </div>
 </header>
 
-<section>
+<div class="container">
+
+<!-- ceremony + invite side by side -->
+<div class="row">
+
+<div class="column ceremony fade">
 
 <h2 data-en="Ceremony" data-es="Ceremonia">Ceremony</h2>
 
-<p data-en="Wednesday, June 3, 2026" data-es="Miércoles, 3 de Junio 2026">Wednesday, June 3, 2026</p>
+<p data-en="Wednesday, June 3, 2026" data-es="Miércoles, 3 de Junio 2026">
+Wednesday, June 3, 2026
+</p>
 
 <p>3:00 PM</p>
 
@@ -172,31 +238,39 @@ Our Lady of Perpetual Help Church
 
 <p>23233 Lyons Ave, Santa Clarita, CA</p>
 
-<a class="button" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA" target="_blank"
+<a class="button alt" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA" target="_blank"
  data-en="View Location" data-es="Ver Ubicación">
 View Location
 </a>
 
-</section>
+</div>
 
-<section>
+<div class="column invite fade">
 
-<h2 data-en="Reception" data-es="Recepción">Reception</h2>
+<h2 data-en="Invitation" data-es="Invitación">Invitation</h2>
 
-<p data-en="Reception to follow" data-es="Recepción después de la ceremonia">
-Reception to follow
+<p data-en="Download the official wedding invitation" data-es="Descargar la invitación oficial">
+Download the official wedding invitation
 </p>
 
-<p>24934 Newhall Ave, Santa Clarita, CA</p>
-
-<a class="button" href="https://maps.google.com/?q=24934+Newhall+Ave+Santa+Clarita+CA" target="_blank"
- data-en="View Location" data-es="Ver Ubicación">
-View Location
+<a class="button" href="assets/invite-english.pdf" download
+ data-en="English Invite" data-es="Invitación en Inglés">
+English Invite
 </a>
 
-</section>
+<br>
 
-<section>
+<a class="button alt2" href="assets/invite-spanish.pdf" download
+ data-en="Spanish Invite" data-es="Invitación en Español">
+Spanish Invite
+</a>
+
+</div>
+
+</div>
+
+<!-- rsvp center -->
+<div class="center rsvp fade">
 
 <h2 data-en="RSVP" data-es="Confirmación">RSVP</h2>
 
@@ -204,61 +278,21 @@ View Location
 Please confirm before May 3, 2026
 </p>
 
-<a class="button" href="#" 
+<a class="button" href="#"
  data-en="Click here to RSVP" data-es="Haga clic aquí para confirmar">
 Click here to RSVP
 </a>
 
-</section>
+</div>
 
-<section>
-
-<h2 data-en="Gallery" data-es="Galería">Gallery</h2>
-
-<div class="gallery">
+<!-- gallery -->
+<div class="gallery fade">
 <img src="assets/photo1.jpg" />
 <img src="assets/photo2.jpg" />
 <img src="assets/photo3.jpg" />
 </div>
 
-</section>
-
-<section>
-
-<h2 data-en="Download Invitation" data-es="Descargar Invitación">
-Download Invitation
-</h2>
-
-<div class="invite-buttons">
-
-<a class="button" href="assets/invite-english.pdf" download
- data-en="Download English Invite" data-es="Descargar Invitación en Inglés">
-Download English Invite
-</a>
-
-<a class="button" href="assets/invite-spanish.pdf" download
- data-en="Download Spanish Invite" data-es="Descargar Invitación en Español">
-Download Spanish Invite
-</a>
-
 </div>
-
-</section>
-
-<section>
-
-<h2 data-en="Registry" data-es="Registro">Registry</h2>
-
-<p data-en="Registered on Amazon under Brayon Rodriguez" data-es="Registrado en Amazon bajo Brayon Rodriguez">
-Registered on Amazon under Brayon Rodriguez
-</p>
-
-<a class="button" href="#" target="_blank"
- data-en="View Registry" data-es="Ver Registro">
-View Registry
-</a>
-
-</section>
 
 <footer>
 Designed by Sushmita ✨
@@ -267,16 +301,42 @@ Designed by Sushmita ✨
 <script>
 
 function setLang(lang){
-
  document.querySelectorAll('[data-en]').forEach(el=>{
-   el.textContent=el.getAttribute('data-'+lang);
+  el.textContent=el.getAttribute('data-'+lang);
  });
 
  document.getElementById('btn-en').classList.remove('active');
  document.getElementById('btn-es').classList.remove('active');
  document.getElementById('btn-'+lang).classList.add('active');
-
 }
+
+/* countdown */
+const target=new Date("June 3, 2026 15:00:00").getTime();
+const countdownEl=document.getElementById("countdown");
+
+setInterval(()=>{
+
+const now=new Date().getTime();
+const diff=target-now;
+
+const d=Math.floor(diff/(1000*60*60*24));
+const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const m=Math.floor((diff%(1000*60*60))/(1000*60));
+
+countdownEl.innerHTML=`${d} days • ${h} hours • ${m} minutes`;
+
+},1000);
+
+/* fade in scroll */
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('visible');
+  }
+ });
+});
+
+ document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 
 </script>
 
