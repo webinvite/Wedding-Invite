@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maya & Brayon Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -34,22 +34,45 @@ background:white;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 30px;
+padding:14px 20px;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
 z-index:100;
+}
 }
 
 .logo{
 font-family:'Great Vibes',cursive;
 font-size:1.8rem;
 color:var(--sage);
+white-space:nowrap;
+}
+
+nav div{
+display:flex;
+flex-wrap:wrap;
+justify-content:flex-end;
+}
+
+@media(max-width:600px){
+nav{
+padding:12px 14px;
+}
+
+.logo{
+font-size:1.4rem;
 }
 
 nav a{
-margin-left:18px;
+font-size:.75rem;
+margin-left:10px;
+}
+}
+
+nav a{
+margin-left:16px;
 text-decoration:none;
 color:#555;
-font-size:.9rem;
+font-size:.85rem;
 }
 
 nav a:hover{
@@ -102,10 +125,22 @@ font-family:'Great Vibes',cursive;
 font-size:3.8rem;
 color:var(--sage);
 margin:10px 0;
+white-space:nowrap;
 }
 
-.names span{
-display:block;
+@media(max-width:600px){
+.names{
+white-space:normal;
+font-size:2.6rem;
+line-height:1.2;
+}
+}
+
+@media(max-width:600px){
+.names{
+white-space:normal;
+font-size:3rem;
+}
 }
 
 .hero-date{
@@ -114,7 +149,7 @@ font-size:1.3rem;
 }
 
 .hero-image{
-max-width:1100px;
+max-width:1200px;
 margin:0 auto 60px auto;
 padding:0 20px;
 }
@@ -126,17 +161,18 @@ box-shadow:0 20px 50px rgba(0,0,0,0.12);
 }
 
 section{
-max-width:720px;
+max-width:760px;
 margin:auto;
-padding:80px 24px;
+padding:90px 24px;
 text-align:center;
 }
 
 h2{
 font-family:'Playfair Display',serif;
-font-size:1.6rem;
-font-weight:400;
-margin-bottom:12px;
+font-size:2.3rem;
+font-weight:500;
+margin-bottom:18px;
+letter-spacing:.5px;
 }
 
 .section-soft{
@@ -149,9 +185,9 @@ border-radius:22px;
 .rsvp{
 background:linear-gradient(135deg,#fafafa,#f0f0f0);
 border-radius:26px;
-padding:90px 30px;
+padding:100px 30px;
 margin:60px auto;
-max-width:760px;
+max-width:820px;
 }
 
 /* BUTTON */
@@ -181,21 +217,27 @@ box-shadow:0 8px 20px rgba(0,0,0,0.08);
 .gallery-scroll{
 display:flex;
 overflow-x:auto;
-gap:18px;
+gap:22px;
 padding:20px 10px;
 }
 
 .gallery-scroll img{
-height:240px;
-border-radius:18px;
+height:320px;
+border-radius:20px;
 flex-shrink:0;
+box-shadow:0 15px 30px rgba(0,0,0,0.12);
+transition:.3s;
+}
+
+.gallery-scroll img:hover{
+transform:scale(1.03);
 }
 
 /* COUNTDOWN */
 
 .countdown{
 text-align:center;
-padding:90px 20px;
+padding:100px 20px;
 }
 
 #countdown{
@@ -239,9 +281,7 @@ With joyful hearts
 </p>
 
 <div class="names">
-<span>Maya Gonzalez</span>
-<span>&</span>
-<span>Brayon Rodriguez</span>
+Maya Gonzalez & Brayon Rodriguez
 </div>
 
 <p class="hero-small" data-en="invite you to celebrate their wedding" data-es="los invitan a celebrar su boda">
@@ -277,12 +317,12 @@ invite you to celebrate their wedding
 <section class="rsvp" id="rsvp">
 <h2>Celebrate With Us</h2>
 <p>We would love to celebrate this special day surrounded by our loved ones. Your presence will make our day even more meaningful.</p>
-<p><strong>Adults Only Reception</strong><br>No children under 18 please</p>
+<p><strong>Kindly note: We respectfully request no children under 18.</p>
 <a class="button">Call or Text Us to RSVP</a>
 </section>
 
 <section id="gallery" class="section-soft">
-<h2>Some Moments Worth Sharing</h2>
+<h2>Captured Moments</h2>
 <div class="gallery-scroll">
 <img src="assets/photo1.jpg">
 <img src="assets/photo2.jpg">
@@ -316,11 +356,16 @@ Designed by Sushmita Jadhav © 2026 All Rights Reserved
 <script>
 
 function setLang(lang){
-
 const elements=document.querySelectorAll('[data-en]');
 
  elements.forEach(el=>{
  el.innerText=el.getAttribute(`data-${lang}`)
+ })
+
+ document.getElementById('btn-en').classList.remove('active')
+ document.getElementById('btn-es').classList.remove('active')
+ document.getElementById(`btn-${lang}`).classList.add('active')
+}`)
  })
 
  document.getElementById('btn-en').classList.remove('active')
