@@ -14,7 +14,7 @@
 --lavender:#C9B6D9;
 --cream:#FAF9F7;
 --text:#333;
---lightgrey:#f3f3f3;
+--lightgrey:#f6f6f6;
 }
 
 body{
@@ -49,18 +49,18 @@ nav a{
 margin-left:18px;
 text-decoration:none;
 color:#555;
-font-size:0.9rem;
+font-size:.9rem;
 }
 
 nav a:hover{
 color:var(--sage);
 }
 
-/* LANGUAGE TOGGLE */
+/* LANGUAGE */
 
 .lang-toggle{
 position:fixed;
-top:90px;
+top:80px;
 right:20px;
 background:white;
 border-radius:30px;
@@ -78,15 +78,15 @@ border-radius:20px;
 }
 
 .lang-toggle button.active{
-background:var(--lavender);
+background:var(--sage);
 color:white;
 }
 
-/* HERO TEXT */
+/* HERO */
 
 .hero-text{
 max-width:720px;
-margin:80px auto 30px auto;
+margin:90px auto 30px auto;
 text-align:center;
 padding:0 20px;
 }
@@ -94,44 +94,36 @@ padding:0 20px;
 .hero-small{
 font-family:'Playfair Display',serif;
 font-style:italic;
-color:#666;
+color:#777;
 }
 
-.hero-text h1{
+.names{
 font-family:'Great Vibes',cursive;
 font-size:3.8rem;
-margin:12px 0;
 color:var(--sage);
-white-space:nowrap;
-text-shadow:0 2px 8px rgba(0,0,0,0.12);
+margin:10px 0;
+}
+
+.names span{
+display:block;
 }
 
 .hero-date{
 font-family:'Playfair Display',serif;
-font-size:1.4rem;
-color:#555;
+font-size:1.3rem;
 }
-
-.hero-location{
-font-size:.95rem;
-color:#777;
-}
-
-/* HERO IMAGE */
 
 .hero-image{
-max-width:1050px;
-margin:0 auto 50px auto;
+max-width:1100px;
+margin:0 auto 60px auto;
 padding:0 20px;
 }
 
 .hero-image img{
 width:100%;
-border-radius:20px;
-box-shadow:0 18px 40px rgba(0,0,0,0.1);
+border-radius:22px;
+box-shadow:0 20px 50px rgba(0,0,0,0.12);
 }
-
-/* SECTIONS */
 
 section{
 max-width:720px;
@@ -140,33 +132,29 @@ padding:80px 24px;
 text-align:center;
 }
 
-.section-soft{
-background:var(--lightgrey);
-border-radius:18px;
-}
-
 h2{
 font-family:'Playfair Display',serif;
-font-style:italic;
-margin-bottom:10px;
+font-size:1.6rem;
+font-weight:400;
+margin-bottom:12px;
 }
 
-/* RSVP SECTION */
+.section-soft{
+background:var(--lightgrey);
+border-radius:22px;
+}
+
+/* RSVP */
 
 .rsvp{
 background:linear-gradient(135deg,#fafafa,#f0f0f0);
-border-radius:24px;
+border-radius:26px;
 padding:90px 30px;
 margin:60px auto;
 max-width:760px;
 }
 
-.rsvp h2{
-font-size:2rem;
-color:var(--sage);
-}
-
-/* BUTTONS */
+/* BUTTON */
 
 .button{
 display:inline-block;
@@ -176,58 +164,38 @@ border-radius:30px;
 background:var(--sage);
 color:white;
 text-decoration:none;
-position:relative;
-overflow:hidden;
 transition:.35s;
 }
 
-.button.alt{background:var(--lavender);}
-
-.button::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:rgba(255,255,255,0.25);
-transform:skewX(-25deg);
-transition:.6s;
+.button.alt{
+background:var(--lavender);
 }
-
-.button:hover::before{left:120%;}
 
 .button:hover{
 transform:translateY(-2px);
-box-shadow:0 10px 20px rgba(0,0,0,0.08);
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 /* GALLERY */
 
-.gallery{
+.gallery-scroll{
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:16px;
-margin-top:20px;
+overflow-x:auto;
+gap:18px;
+padding:20px 10px;
 }
 
-.gallery img{
-width:220px;
-border-radius:16px;
+.gallery-scroll img{
+height:240px;
+border-radius:18px;
+flex-shrink:0;
 }
 
 /* COUNTDOWN */
 
 .countdown{
 text-align:center;
-padding:90px 20px 110px 20px;
-}
-
-.countdown-title{
-font-family:'Playfair Display',serif;
-font-size:2rem;
-margin-bottom:20px;
+padding:90px 20px;
 }
 
 #countdown{
@@ -238,10 +206,9 @@ color:var(--sage);
 
 footer{
 text-align:center;
-padding:40px 0 60px 0;
-font-style:italic;
+padding:40px;
 color:#777;
-font-size:.9rem;
+font-style:italic;
 }
 
 </style>
@@ -267,19 +234,22 @@ font-size:.9rem;
 
 <div class="hero-text">
 
-<p class="hero-small">
-With joyful hearts and surrounded by love
+<p class="hero-small" data-en="With joyful hearts" data-es="Con corazones llenos de alegría">
+With joyful hearts
 </p>
 
-<h1>Maya Gonzalez & Brayon Rodriguez</h1>
+<div class="names">
+<span>Maya Gonzalez</span>
+<span>&</span>
+<span>Brayon Rodriguez</span>
+</div>
 
-<p class="hero-small">
-invite you to celebrate the beginning of their forever
+<p class="hero-small" data-en="invite you to celebrate their wedding" data-es="los invitan a celebrar su boda">
+invite you to celebrate their wedding
 </p>
 
 <p class="hero-date">June 3, 2026 • 3:00 PM</p>
-
-<p class="hero-location">Santa Clarita, California</p>
+<p>Santa Clarita, California</p>
 
 </div>
 
@@ -288,109 +258,75 @@ invite you to celebrate the beginning of their forever
 </div>
 
 <section id="ceremony">
-
 <h2>Ceremony</h2>
-
 <p>Wednesday, June 3, 2026</p>
 <p>3:00 PM</p>
-
 <p>Our Lady of Perpetual Help Church</p>
 <p>23233 Lyons Ave, Santa Clarita, CA</p>
-
-<a class="button alt" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA" target="_blank">
-View Location
-</a>
-
+<a class="button alt" href="https://maps.google.com/?q=23233+Lyons+Ave+Santa+Clarita+CA">View Location</a>
 </section>
 
 <section id="reception">
-
 <h2>Reception</h2>
-
 <p>Reception to follow</p>
-
 <p>24934 Newhall Ave</p>
 <p>Santa Clarita, CA</p>
-
-<a class="button alt" href="https://maps.google.com/?q=24934+Newhall+Ave+Santa+Clarita+CA" target="_blank">
-View Location
-</a>
-
+<a class="button alt" href="https://maps.google.com/?q=24934+Newhall+Ave+Santa+Clarita+CA">View Location</a>
 </section>
 
 <section class="rsvp" id="rsvp">
-
 <h2>Celebrate With Us</h2>
-
-<p>
-We would be truly honored to celebrate this special day surrounded by the people who mean the most to us. Your presence would make our wedding even more meaningful and memorable.
-</p>
-
-<a class="button" href="#">
-Click here to RSVP
-</a>
-
+<p>We would love to celebrate this special day surrounded by our loved ones. Your presence will make our day even more meaningful.</p>
+<p><strong>Adults Only Reception</strong><br>No children under 18 please</p>
+<a class="button">Call or Text Us to RSVP</a>
 </section>
 
 <section id="gallery" class="section-soft">
-
-<h2>Some moments are worth sharing!</h2>
-
-<div class="gallery">
-
+<h2>Some Moments Worth Sharing</h2>
+<div class="gallery-scroll">
 <img src="assets/photo1.jpg">
 <img src="assets/photo2.jpg">
 <img src="assets/photo3.jpg">
-
+<img src="assets/photo4.jpg">
+<img src="assets/photo5.jpg">
 </div>
-
 </section>
 
 <section>
-
 <h2>You can download your invite here</h2>
-
-<a class="button" href="assets/invite-english.jpeg" download>
-English Invite
-</a>
-
-<a class="button alt" href="assets/invite-spanish.jpeg" download>
-Spanish Invite
-</a>
-
+<a class="button" href="assets/invite-english.jpeg" download>English Invite</a>
+<a class="button alt" href="assets/invite-spanish.jpeg" download>Spanish Invite</a>
 </section>
 
 <section id="registry" class="section-soft">
-
 <h2>Registry</h2>
-
-<p>
-Registered on Amazon under Brayon Rodriguez
-</p>
-
-<a class="button" href="#">
-View Registry
-</a>
-
+<p>Your presence is the greatest gift. If you'd like to contribute, you can view our registry below.</p>
+<a class="button" href="https://www.amazon.com/wedding/guest-view/1ZJ2M863XJ969" target="_blank">View Registry</a>
 </section>
 
 <div class="countdown">
-
-<div class="countdown-title">
-Countdown to our Wedding
-</div>
-
+<h2>Countdown to our Wedding</h2>
 <div id="countdown"></div>
-
 </div>
 
 <footer>
-
 Designed by Sushmita Jadhav © 2026 All Rights Reserved
-
 </footer>
 
 <script>
+
+function setLang(lang){
+
+const elements=document.querySelectorAll('[data-en]');
+
+ elements.forEach(el=>{
+ el.innerText=el.getAttribute(`data-${lang}`)
+ })
+
+ document.getElementById('btn-en').classList.remove('active')
+ document.getElementById('btn-es').classList.remove('active')
+ document.getElementById(`btn-${lang}`).classList.add('active')
+}
 
 const target=new Date("June 3, 2026 15:00:00").getTime();
 const countdownEl=document.getElementById("countdown");
